@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { updateSelection } from '../actions';
+import PropTypes from 'prop-types'
 
 export default class Card extends Component {
 
@@ -52,4 +53,4 @@ export default class Card extends Component {
   }
 }
 
-Card.contextTypes = { store: React.PropTypes.object };
+Card.contextTypes = { store: PropTypes.object };

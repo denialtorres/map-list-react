@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { GoogleMapLoader, GoogleMap, Marker, InfoWindow } from "react-google-maps";
+import PropTypes from 'prop-types'
 
 export default class MarkerList extends Component {
 
@@ -92,6 +93,4 @@ export default class MarkerList extends Component {
 	}
 }
 
-MarkerList.contextTypes = { store: React.PropTypes.object };
-
-
+MarkerList.contextTypes = { store: PropTypes.object };

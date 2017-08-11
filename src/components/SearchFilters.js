@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import InputRange from 'react-input-range';
-import '../../node_modules/react-input-range/dist/react-input-range.css';
+import PropTypes from 'prop-types'
+
+import '../../node_modules/react-input-range/lib/bundle/react-input-range.css';
 
 import filters from '../data/filters';
 import { updateQuery } from '../actions';
@@ -10,6 +12,8 @@ class SearchFilters extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = filters;
+    console.log('ESSSTAS EN constructor')
+    console.log(this.state.filters.elevation_height)
   }
 
   updateStore() {
@@ -33,10 +37,12 @@ class SearchFilters extends Component {
     });
   }
 
-  updateFilter(id, component, value) {
+  updateFilter(id, value) {
+    console.log('activas')
+    console.log(id) //elevation_height
+    console.log(value) // 14605
     let current_filters = this.state.filters;
     current_filters[id] = value;
-
     this.setState({
       filters: current_filters
     }, () => {
@@ -66,7 +72,7 @@ class SearchFilters extends Component {
                     minValue={10000}
                     value={this.state.filters.elevation_height}
                     labelSuffix=" ft"
-                    onChange={this.updateFilter.bind(this, 'elevation_height')}
+                    onChange={ this.updateFilter.bind(this, 'elevation_height')}
                   />
                 </div>
                 <div className="range-container">
@@ -136,5 +142,5 @@ class SearchFilters extends Component {
 
 }
 
-SearchFilters.contextTypes = { store: React.PropTypes.object };
+SearchFilters.contextTypes = { store: PropTypes.object };
 export default SearchFilters;
