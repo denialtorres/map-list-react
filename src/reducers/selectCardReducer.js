@@ -1,5 +1,5 @@
 let default_state = {
-  id_property: null
+  id_property: 0
 }
 
 export default function selectCardReducer (state = default_state, action){

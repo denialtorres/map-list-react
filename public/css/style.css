@@ -26,6 +26,7 @@ body, html {
     z-index: 3;
 }
 
+
 .query-container label {
     font-size: 15px;
 }
@@ -48,6 +49,10 @@ ul.ranges {
     padding-top: 20px;
     border: 1px solid #dadada;
     margin: 0 2px;
+    width: 50%;
+    margin-left: 45%;
+    position: relative;
+    z-index: 3;
 }
 
 .search-filters > div {

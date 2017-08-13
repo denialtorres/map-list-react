@@ -14,11 +14,36 @@ class CardList extends React.Component{
     }
     componentDidMount(){
       this.context.store.subscribe(() => {
+        console.log("componentDidMount")
         let state = this.context.store.getState().selectCard;
         console.log(state.id_property);
-        let selectedItem = document.getElementById(state.id_property);
-        scrollToComponent(selectedItem);
+        //let selectedItem = document.getElementById(state.id_property);
+        //scrollToComponent(selectedItem);
+
+
+         this.setState({
+           id_property: state.id_property
+         });
       });
+    }
+    componentDidUpdate(prevProps, prevState) {
+      console.log("ESTAS EN COMPONENTE DID UPDATE")
+      console.log(prevState)
+      console.log(this.state)
+      if(this.state !== prevState && prevState !== null)
+      { console.log("SON DIFERENTES")
+        if(document.getElementById(prevState.id_property)){
+          console.log("ELEMENTO EXISTE")
+          let oldItem = document.getElementById(prevState.id_property)
+          let selectedItem = document.getElementById(this.state.id_property);
+          oldItem.style.border = null
+          selectedItem.style.border = "3px solid black"
+          scrollToComponent(selectedItem)
+        }
+
+
+      }
+      console.log(prevProps)
     }
 
     render(){
