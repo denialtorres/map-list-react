@@ -12,10 +12,7 @@ class App extends Component {
     return (
       <div className="App flex two">
         <VisibleMarkers />
-        <div id="filters-container">
-          <SearchFilters />
-          <VisibleCards />
-        </div>
+        <VisibleCards />
       </div>
     );
   }

@@ -6,6 +6,9 @@ let default_state = {
 
 export default function currentSelectionsReducer (state = default_state, action) {
 	if (action.type === 'UPDATE_SELECTION') {
+		console.log(action);
+		console.log('EEESTAS EN CURRENT SELECTION')
+		console.log(action.key)
 		return {
 			key: action.key,
 			position: action.position,

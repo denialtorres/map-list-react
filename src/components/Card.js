@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { updateSelection } from '../actions';
 import PropTypes from 'prop-types'
+import scrollToComponent from "react-scroll-to-component";
+
+
 
 export default class Card extends Component {
+  componentDidMount(){
+
+  }
 
   showInfoWindow(properties, coordinates, event) {
     let position = {
@@ -26,10 +32,10 @@ export default class Card extends Component {
     let photo = "/photos/" + this.props.data.photo;
     let properties = this.props.data.properties;
     let coordinates = this.props.data.geometry.coordinates;
-
     return (
       <div
         className="card-container"
+        id= {properties.id}
         onMouseEnter={this.showInfoWindow.bind(this, properties, coordinates)}
         onMouseLeave={this.hideInfoWindow.bind(this)}>
         <div className="card">

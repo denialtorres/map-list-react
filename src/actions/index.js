@@ -15,3 +15,10 @@ export const updateQuery = (query, show_filters, filters) => {
     filters
   }
 }
+
+export const selectCard = (key) => {
+  return {
+    type: 'SELECT_CARD',
+    key
+  }
+}

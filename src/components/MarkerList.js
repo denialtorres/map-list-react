@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleMapLoader, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import PropTypes from 'prop-types'
+import { selectCard } from '../actions';
 
 export default class MarkerList extends Component {
 
@@ -20,7 +21,8 @@ export default class MarkerList extends Component {
 	componentWillMount() {
 		this.context.store.subscribe(() => {
 			let state = this.context.store.getState().currentSelections;
-		 	this.setState({
+      console.log('cambio');
+      this.setState({
 		 		windowPosition: state.position,
 		 		showInfoWindow: state.showInfoWindow,
 		 		current_name: state.key
@@ -28,29 +30,23 @@ export default class MarkerList extends Component {
 		});
 	}
 
-	toggleInfoWindow(name, loc) {
+  clickMarker(marker_id){
+    console.log('diste click');
+    console.log(marker_id)
+    //this.context.store.dispatch(updateSelection(key, position, showInfoWindow));
+    this.context.store.dispatch(
+      selectCard(marker_id)
+    );
+  }
 
-		if (loc == null) {
-		  this.setState({ windowPosition: null });
-		  return;
-		}
-		let markerLoc = {
-      lat: loc.latLng.lat(),
-      lng: loc.latLng.lng()
-    };
-		this.setState({
-      current_name: name,
-      windowPosition: markerLoc,
-      showInfoWindow: true
-    });
-	}
+
 
 	render() {
 
 		let mountains = this.props.mountains;
 
 		return (
-		  <section style={{height: "100%", width: "40%"}}>
+		  <section style={{position: "fixed", height: "100%", width: "40%"}}>
 		    <GoogleMapLoader
 		      containerElement={
 		        <div
@@ -68,7 +64,8 @@ export default class MarkerList extends Component {
     			      <Marker
     			        position={{lat: row.geometry.coordinates[1], lng: row.geometry.coordinates[0]}}
     			        key={row.properties.name}
-    			        onClick={this.toggleInfoWindow.bind(this, row.properties.name)}
+    			        //onClick={this.toggleInfoWindow.bind(this, row.properties.name)}
+                  onClick = {this.clickMarker.bind(this, row.properties.id)}
     			      >
 
     			      </Marker>
