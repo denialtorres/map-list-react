@@ -43,7 +43,8 @@ export default class Card extends Component {
             <img src={photo} alt={properties.name} className="photo" />
           </div>
           <div className="details-container">
-            <div className="name">{ properties.name }</div>
+            {/* <div className="name">{ properties.name }</div> */}
+            <div className="name">{ properties.price }</div>
             <div className="range">{ properties.range }</div>
             <div className="details">
               <ul>

@@ -7,7 +7,8 @@ const filters = {
 		prominence_height: 5000,
 		prominence_distance: 3000,
 		isolation_height: 700,
-		isolation_distance: 2000
+		isolation_distance: 2000,
+		price_value: [0,1000000000000000000000000]
 	}
 }
 

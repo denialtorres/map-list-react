@@ -10,7 +10,7 @@ class CardList extends React.Component{
          // call the React.Component constructor (the super class, the one you are extending)
          super(props);
          console.log('estas en constructor')
-         console.log(props.mountains)
+
     }
     componentDidMount(){
       this.context.store.subscribe(() => {
@@ -52,7 +52,6 @@ class CardList extends React.Component{
             {this.props.mountains.map((row, key) =>
             	<Card data={row} key={key} />
             )}
-            <div ref={(section) => { this.algo = section; }}>pussi</div>
           </div>
         );
     }

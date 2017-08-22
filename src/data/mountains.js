@@ -9,6 +9,7 @@ const mountains = [{
               "name": "Mount Elbert",
               "range": "Sawatch Range",
               "id": "1",
+              "price": 20,
               "elevation": [14440, 4401],
               "prominence": [9093, 2772],
               "isolation": [671, 1079]
@@ -25,6 +26,7 @@ const mountains = [{
               "name": "Mount Massive",
               "range": "Sawatch Range",
               "id": "2",
+              "price": 12,
               "elevation": [14428, 4398],
               "prominence": [1961, 598],
               "isolation": [5.1, 8.1]
@@ -41,6 +43,7 @@ const mountains = [{
               "name": "Mount Harvard",
               "range": "Sawatch Range",
               "id": "3",
+              "price": 8,
               "elevation": [14421, 4396],
               "prominence": [2360, 719],
               "isolation": [15, 24]
@@ -57,6 +60,7 @@ const mountains = [{
               "name": "La Plata Peak",
               "range": "Sawatch Range",
               "id": "4",
+              "price": 5,
               "elevation": [14368, 4379],
               "prominence": [1861, 567],
               "isolation": [6, 10]
@@ -73,6 +77,7 @@ const mountains = [{
               "name": "Blanca Peak",
               "range": "Sangre de Cristo Mountains",
               "id": "5",
+              "price": 17,
               "elevation": [14351, 4374],
               "prominence": [5326, 1623],
               "isolation": [103, 166]
@@ -89,6 +94,7 @@ const mountains = [{
               "name": "Uncompahgre Peak",
               "range": "San Juan Mountains",
               "id": "6",
+              "price": 19,
               "elevation": [14321, 4365],
               "prominence": [4277, 1304],
               "isolation": [85, 137]
@@ -105,6 +111,7 @@ const mountains = [{
               "name": "Crestone Peak",
               "range": "Sangre de Cristo Mountains",
               "id": "7",
+              "price": 13,
               "elevation": [14300, 4359],
               "prominence": [4554, 1388],
               "isolation": [27, 44]
@@ -121,6 +128,7 @@ const mountains = [{
               "name": "Mount Lincoln",
               "range": "Mosquito Range",
               "id": "8",
+              "price": 14,
               "elevation": [14293, 4357],
               "prominence": [3862, 1177],
               "isolation": [23, 36]
@@ -137,6 +145,7 @@ const mountains = [{
               "name": "Castle Peak",
               "range": "Elk Mountains",
               "id": "9",
+              "price": 12,
               "elevation": [14279, 4352],
               "prominence": [2365, 721],
               "isolation": [21, 34]
@@ -153,6 +162,7 @@ const mountains = [{
               "name": "Grays Peak",
               "range": "Front Range",
               "id": "10",
+              "price": 7,
               "elevation": [14278, 4352],
               "prominence": [2770, 844],
               "isolation": [25, 40]
@@ -169,6 +179,7 @@ const mountains = [{
               "name": "Mount Antero",
               "range": "Sawatch Range",
               "id": "11",
+              "price": 12,
               "elevation": [14276, 4351],
               "prominence": [2503, 763],
               "isolation": [18, 28]
@@ -185,6 +196,7 @@ const mountains = [{
               "name": "Torreys Peak",
               "range": "Front Range",
               "id": "12",
+              "price": 17,
               "elevation": [14274, 4351],
               "prominence": [560, 171],
               "isolation": [0.7, 1.1]
@@ -201,6 +213,7 @@ const mountains = [{
               "name": "Quandary Peak",
               "range": "Tenmile Range",
               "id": "13",
+              "price": 14,
               "elevation": [14271, 4350],
               "prominence": [1125, 343],
               "isolation": [3.2, 5.1]
@@ -217,6 +230,7 @@ const mountains = [{
               "name": "Mount Evans",
               "range": "Front Range",
               "id": "14",
+              "price": 2,
               "elevation": [14271, 4350],
               "prominence": [2769, 844],
               "isolation": [10, 16]
@@ -233,6 +247,7 @@ const mountains = [{
               "name": "Longs Peak",
               "range": "Front Range",
               "id": "15",
+              "price": 11,
               "elevation": [14259, 4346],
               "prominence": [2940, 896],
               "isolation": [44, 70]
@@ -249,6 +264,7 @@ const mountains = [{
               "name": "Mount Wilson",
               "range": "Sanguel Mountains",
               "id": "16",
+              "price": 12,
               "elevation": [14252, 4344],
               "prominence": [4024, 1227],
               "isolation": [33, 53]
@@ -265,6 +281,7 @@ const mountains = [{
               "name": "Mount Shavano",
               "range": "Sawatch Range",
               "id": "17",
+              "price": 17,
               "elevation": [14235, 4339],
               "prominence": [1619, 493],
               "isolation": [3.8, 6.1]

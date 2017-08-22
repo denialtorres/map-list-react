@@ -2,19 +2,70 @@ import React, { Component } from 'react';
 import InputRange from 'react-input-range';
 import PropTypes from 'prop-types'
 
+
+
+
 import '../../node_modules/react-input-range/lib/bundle/react-input-range.css';
 
 import filters from '../data/filters';
 import { updateQuery } from '../actions';
+
+//Slider
+import Histogram from './Histogram'
+import Nouislider from 'react-nouislider';
+var d3 = require('d3');
+///////////////////////////////
 
 class SearchFilters extends Component {
 
   constructor(props, context) {
     super(props, context);
     this.state = filters;
+    console.log(this.context)
+
     console.log('ESSSTAS EN constructor')
     console.log(this.state.filters.elevation_height)
+    var starter_nums = [
+    0,1,1,2,3,3,3,3,4,4,4,4,4,5,5,15,15,15,
+    5,5,5,5,6,6,6,6,6,7,8,7,8,8,9,12,12,0,11,19
+    ]
+    this.state.text = starter_nums.join(',');
+    this.state.min_value = 0;
+    this.state.max_value = 100;
+    console.log(filters)
+    console.log(props)
   }
+
+  componentDidMount(){
+    console.log("JOHN CENA")
+    this.context.store.subscribe(() => {
+      console.log("componentDidMount")
+    });
+    console.log(this.state)
+    console.log(this.context)
+  }
+
+  getNumbers(){
+    var numbers = this.state.text.split(','),
+    data = [];
+
+    numbers.forEach(function(n){
+      var num = parseFloat(n);
+      if(!isNaN(num)) data.push(num);
+    });
+
+    return data;
+  }
+
+  getValues(e){
+    this.setState({
+       min_value: e[0],
+       max_value: e[1]
+     })
+     this.updateFilter.bind(this, 'elevation_height')
+  }
+
+
 
   updateStore() {
     this.context.store.dispatch(
@@ -40,25 +91,44 @@ class SearchFilters extends Component {
   updateFilter(id, value) {
     console.log('activas')
     console.log(id) //elevation_height
-    console.log(value) // 14605
+    console.log(value[0]) // 14605
+    console.log(value[1])
     let current_filters = this.state.filters;
     current_filters[id] = value;
     this.setState({
-      filters: current_filters
+      filters: current_filters,
+      min_value: value[0],
+      max_value: value[1]
     }, () => {
       this.updateStore();
     });
   }
 
   render() {
+    var data = this.getNumbers();
+    var maxvalue = Math.max.apply(null, data);
     return (
       <div className="search-filters">
         <div className="query-container">
-          <input type="text" name="query" id="query" placeholder="Name of mountain/peak/range" onKeyUp={this.onQueryChange.bind(this)} />
-          <label>
-            <input type="checkbox" onClick={this.toggleFilters.bind(this)} />
-            <span className="checkable">Show Filters</span>
-          </label>
+          <div className="algo">
+             <h2>Este es el elemento</h2>
+             <Histogram data={data} />
+             <div className= "esslider">
+              <Nouislider
+                range={
+                  {
+                   min: [0],
+                   max: maxvalue
+                 }
+                }
+                start={[this.state.min_value, this.state.max_value]}
+                //onChange={array => {console.log(array)}}
+                onChange={this.updateFilter.bind(this, 'price_value')}
+              />
+            </div>
+            <h2>Valor Minimo: {this.state.min_value}</h2>
+            <h2>Valor Maximo: {this.state.max_value}</h2>
+          </div>
         </div>
 
         <div className={this.state.show_filters ? '' : 'hidden'}>
@@ -123,15 +193,6 @@ class SearchFilters extends Component {
                     onChange={this.updateFilter.bind(this, 'isolation_height')}
                   />
                 </div>
-                <div className="range-container">
-                  <InputRange
-                    maxValue={2000}
-                    minValue={0}
-                    value={this.state.filters.isolation_distance}
-                    labelSuffix=" km"
-                    onChange={this.updateFilter.bind(this, 'isolation_distance')}
-                  />
-                </div>
               </div>
             </li>
           </ul>
@@ -141,6 +202,7 @@ class SearchFilters extends Component {
   }
 
 }
+
 
 SearchFilters.contextTypes = { store: PropTypes.object };
 export default SearchFilters;
