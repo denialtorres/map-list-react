@@ -3,14 +3,11 @@ import Card from './Card';
 import scrollToComponent from "react-scroll-to-component";
 import scrollToElement from "scroll-to-element";
 import ReactDOM from "react-dom";
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 class CardList extends React.Component{
     constructor(props){
-         // call the React.Component constructor (the super class, the one you are extending)
          super(props);
-         console.log('estas en constructor')
-
     }
     componentDidMount(){
       this.context.store.subscribe(() => {

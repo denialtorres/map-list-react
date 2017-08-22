@@ -88,21 +88,7 @@ class SearchFilters extends Component {
     });
   }
 
-  updateFilter(id, value) {
-    console.log('activas')
-    console.log(id) //elevation_height
-    console.log(value[0]) // 14605
-    console.log(value[1])
-    let current_filters = this.state.filters;
-    current_filters[id] = value;
-    this.setState({
-      filters: current_filters,
-      min_value: value[0],
-      max_value: value[1]
-    }, () => {
-      this.updateStore();
-    });
-  }
+
 
   render() {
     var data = this.getNumbers();

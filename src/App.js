@@ -4,17 +4,16 @@ import '../node_modules/picnic/releases/picnic.min.css';
 
 import VisibleCards from './containers/VisibleCards';
 import VisibleMarkers from './containers/VisibleMarkers';
-import SearchFilters from './components/SearchFilters';
+import VisibleSlider from './containers/VisibleSlider';
 
 class App extends Component {
 
   render() {
     return (
       <div className="App flex two">
+        <VisibleSlider />
         <VisibleMarkers />
-        <SearchFilters />
         <VisibleCards />
-
       </div>
     );
   }
